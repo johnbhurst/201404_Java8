@@ -2,34 +2,26 @@
 // John Hurst (john.b.hurst@gmail.com)
 // 2014-04-08
 
-apply plugin: "groovy"
-apply plugin: "idea"
-apply plugin: "application"
-
 wrapper {
   gradleVersion = "1.11"
 }
 
-repositories {
-  mavenCentral()
-}
+allprojects {
+  repositories {
+    mavenCentral()
+  }
 
-project.ext {
-  groovyVersion = "2.2.2"
-  junitVersion = "4.11"
-}
+  apply plugin: "groovy"
+  apply plugin: "idea"
 
-dependencies {
-  compile "org.codehaus.groovy:groovy:$groovyVersion"
-  testCompile "junit:junit:$junitVersion"
-}
+  project.ext {
+    groovyVersion = "2.2.2"
+    junitVersion = "4.11"
+  }
 
-task createSourceDirs(description : "Create empty source directories for all defined sourceSets") << {
-  sourceSets*.allSource.srcDirs.flatten().each { File sourceDirectory ->
-    if (!sourceDirectory.exists()) {
-      println "Making $sourceDirectory"
-      sourceDirectory.mkdirs()
-    }
+  dependencies {
+    compile "org.codehaus.groovy:groovy:$groovyVersion"
+    testCompile "junit:junit:$junitVersion"
   }
 }
 

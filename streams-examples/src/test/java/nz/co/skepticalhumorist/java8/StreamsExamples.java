@@ -6,6 +6,7 @@ package nz.co.skepticalhumorist.java8;
 
 import org.junit.Test;
 
+import java.lang.IllegalStateException;
 import java.util.Arrays;
 import java.util.List;
 import java.util.function.Predicate;
@@ -19,7 +20,7 @@ public class StreamsExamples {
     List<Integer> v = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
   }
 
-  @Test
+  @Test(expected = IllegalStateException.class)
   public void cannotReuseStreams() {
     Stream<Integer> ints = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10).stream();
     Predicate<Integer> isEven = v -> (v & 1) == 0;
