@@ -1,0 +1,11 @@
+*.un~
+*.iml
+*.ipr
+*.iws
+*.sublime-*
+*.vpj
+*.vpw*
+*.vtg
+build
+out/
+.gradle
