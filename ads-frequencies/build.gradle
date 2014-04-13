@@ -1,4 +1,4 @@
 apply plugin: "application"
 
-mainClassName = "nz.co.skepticalhumorist.java8.AdsFrequencies"
+mainClassName = "nz.co.skepticalhumorist.java8.AdsFrequenciesWithJava8Functional"
 
