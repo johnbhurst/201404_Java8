@@ -6,12 +6,13 @@ package nz.co.skepticalhumorist.java8;
 
 import org.junit.Test;
 
-import java.lang.IllegalStateException;
 import java.util.Arrays;
 import java.util.List;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
+
+import static org.junit.Assert.assertEquals;
 
 public class StreamsExamples {
 
@@ -27,6 +28,14 @@ public class StreamsExamples {
     Predicate<Integer> isOdd = v -> (v & 1) == 1;
     List<Integer> evens = ints.filter(isEven).collect(Collectors.toList());
     List<Integer> odds = ints.filter(isOdd).collect(Collectors.toList());
+  }
+
+  @Test
+  public void charactersStream() {
+    assertEquals('*', (char) 42);
+    // assertEquals("*****", IntStream.generate(() -> 42).limit(5).map((i) -> (char) i).reduce())
+    assertEquals("*****", Stream.generate(() -> "*").limit(5).reduce((x, y) -> x + y).get());
+    assertEquals("*****", Stream.generate(() -> "*").limit(5).reduce(String::concat).get());
   }
 
 
