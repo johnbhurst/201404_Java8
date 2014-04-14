@@ -1,0 +1,91 @@
+New Features in Java 8
+
+Java 8 was finally released on March 18.
+
+
+- Lambdas
+- Streams
+- Static and default methods on interfaces
+- Library change highlights
+- JSR310 Date/Time API
+- Nashorn
+- Looking forward to Java 9
+
+Java Release Timeline
+
+Who is using Java8 already?
+
+Who is planning to use it this year?
+
+Lambdas
+=======
+- .forEach
+- I/O example?
+- JDBC resource pattern?
+- Spring with Lambdas
+- Gotcha with ++
+
+Streams
+=======
+- List comprehension
+- Collectors/Suppliers
+- Spliterators and parallel stream performance - example
+- Gotcha with stream reuse
+
+Static and default methods on interfaces
+========================================
+- Comparator interface
+
+Library change highlights
+=========================
+- java.util.stream
+- java.util.function
+- others?
+- .sort() method, clashes with Groovy
+
+JSR310 Date/Time API
+====================
+- Joda-Time
+- Compare classes with Joda-Time
+
+Nashorn
+=======
+- Faster?
+- Compare N-Queens between Java7/Rhino and Java8/Nashorn
+
+Looking forward to Java 9
+=========================
+- Jigsaw?
+- Collection literals?
+- Uniform access?
+- ?
+
+
+Notes:
+Using deprecated e.g. java.sql.Date.valueOf(LocalDate)
+
+It's a pity forEach() doesn't return anything
+  - List comprehensions
+
+Get joda-time JARs and compare class counts and deprecation
+
+Interesting real-world examples in NmiDataIdRoleExtractLoaderWorker
+
+
+John Hurst is a Wellington Developer who started with Java in 1996. He develops mostly with Java/Groovy/Oracle at present.
+He is interested in the evolution of programming languages and what programming languages of the future will look like.
+
+Java 8 was released on March 18, though weekly builds have been available for a long time. This is the biggest change in
+the Java language and libraries since Java 1.5 nearly 10 years ago. The main changes are for the lambda language features
+and the streams libraries. These changes permit a functional programming style and may change the paradigms of Java programming
+more than any prior platform change.
+
+We will look at how lamdas and streams work, as well as other new APIs such as java.time.
+We will study a detailed example of how switching to these APIs change a simple program.
+
+IDEA bug:
+
+    oldExtracts.keySet().stream().filter(nmi -> !newExtracts.keySet().contains(nmi)).map(oldExtracts::get).forEach(deleteExtracts::addAll);
+    newExtracts.keySet().stream().filter(nmi -> !oldExtracts.keySet().contains(nmi)).map(newExtracts::get).forEach(insertExtracts::addAll);
+
+
