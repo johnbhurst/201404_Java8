@@ -7,7 +7,10 @@ package nz.co.skepticalhumorist.java8;
 import org.junit.Test;
 
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.TreeMap;
 import java.util.function.Function;
 import java.util.function.IntFunction;
 import java.util.function.Predicate;
@@ -55,6 +58,21 @@ public class StreamsExamples {
     // assertEquals("*****", IntStream.generate(() -> 42).limit(5).map((i) -> (char) i).reduce())
     assertEquals("*****", Stream.generate(() -> "*").limit(5).reduce((x, y) -> x + y).get());
     assertEquals("*****", Stream.generate(() -> "*").limit(5).reduce(String::concat).get());
+  }
+
+
+
+  @Test
+  public void functionalSetProcessing() {
+    Map<String, List<Integer>> oldList = new TreeMap<>();
+    Map<String, List<Integer>> newList = new TreeMap<>();
+    oldList.put("ONE", Arrays.asList(1, 2, 3));
+    oldList.put("TWO", Arrays.asList(4, 5, 6));
+    oldList.put("THREE", Arrays.asList(7, 8, 9));
+    newList.put("TWO", Arrays.asList(10, 11, 12));
+    newList.put("THREE", Arrays.asList(13, 14, 15));
+    newList.put("FOUR", Arrays.asList(16, 17, 18));
+
   }
 
 
