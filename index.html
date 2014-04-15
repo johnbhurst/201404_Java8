@@ -333,7 +333,7 @@ they must be effectively final.</p>
   Predicate&lt;Integer&gt; isEven = v -&gt; (v &amp; 1) == 0;
   Predicate&lt;Integer&gt; isOdd = v -&gt; (v &amp; 1) == 1;
   List&lt;Integer&gt; evens = ints.filter(isEven).collect(Collectors.toList());
-  List&lt;Integer&gt; odds = ints.filter(isOdd).collect(Collectors.toList());
+  List&lt;Integer&gt; odds = ints.filter(isOdd).collect(Collectors.toList()); // ERROR
 </pre>
 <p>throws IllegalStateException.</p>
 </div>
@@ -642,7 +642,7 @@ SERVER_NAME=AXIS_T
     try (Stream&lt;String&gt; lines = Files.lines(file)) {
       lines.forEach(line -> {
         if (line.startsWith("STMT_TIME=")) {
-          return yearMonth(line.substring(10));
+          return yearMonth(line.substring(10)); // ERROR
         }
       });
     }
@@ -663,7 +663,7 @@ SERVER_NAME=AXIS_T
     try (Stream&lt;String&gt; lines = Files.lines(file)) {
       lines.forEach(line -> {
         if (line.startsWith("STMT_TIME=")) {
-          result = yearMonth(line.substring(10));
+          result = yearMonth(line.substring(10)); // ERROR
         }
       });
     }
