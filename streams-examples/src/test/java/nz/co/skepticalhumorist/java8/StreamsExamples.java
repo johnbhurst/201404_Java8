@@ -8,6 +8,8 @@ import org.junit.Test;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.function.Function;
+import java.util.function.IntFunction;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -18,7 +20,24 @@ public class StreamsExamples {
 
   @Test
   public void testOk() {
-    List<Integer> v = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+    Stream<Integer> ints = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10).stream();
+
+//    int sum = 0;
+//    ints.forEach(value -> {
+//      sum += value;
+//    });
+//    int sum = ints.collect(Collectors.summingInt(x -> x));
+//    assertEquals(55, sum);
+
+
+    int sumEvens = ints.filter(x -> x % 2 ==0).collect(Collectors.summingInt(x -> x));
+    assertEquals(30, sumEvens);
+
+
+//    ints.forEach(value -> {
+//      System.out.println("value = " + value);
+//    });
+
   }
 
   @Test(expected = IllegalStateException.class)
