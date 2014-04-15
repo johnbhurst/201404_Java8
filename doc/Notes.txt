@@ -1,2 +1,34 @@
 Talk Notes
 
+Example 1:
+
+  Don't you love StackOverflow.com?
+
+  Awkward but common way to build up a Map of results.
+
+Example 2:
+
+  nio Path instead of File
+  newDirectoryStream() instead of listFiles() -- iterator pattern, more efficient
+  But it is a Closeable resource, so needs to be managed
+
+  There is Files.readAllLines(), but that could use a lot of memory
+
+  I hardly use Java 7 nio because we use libraries for I/O
+  . e.g. commons-io
+  . e.g. Spring InputStreamSource/template
+  . e.g. groovy.jar
+
+Example 3:
+
+  YearMonth instead of String
+  .forEach with Consumer<K,V>
+  Files.list() returns a Stream instead of an Iterator
+  Map#merge() is a good improvement
+  See also compute(), computeIfAbsent(), computeIfPresent()
+
+Example 4:
+
+  Note checked exceptions getting in the way
+  Note heavy chaining and lazy stream processing could make debugging challenging
+
