@@ -454,7 +454,15 @@ HOST_ADDRESS=127.0.1.1
 CALLER=Query Analyzer (Execute)
 SERVER_NAME=AXIS_T
 </pre>
-<p>And produce counts and histogram of files per month</p>
+<div class="slide">
+<p>And produce counts and histogram of files per month:</p>
+<pre class="brush:plain">
+2007-10:   587 **********************************************************
+2007-11:   271 ***************************
+2007-12:   715 ***********************************************************************
+...
+</pre>
+</div>
 </div>
 
 <div class="slide">
@@ -709,6 +717,17 @@ SERVER_NAME=AXIS_T
     });
   }
 </pre>
+<div class="slide">
+<p>Complete with funky "functional" stars() method:</p>
+<pre class="brush:java">
+  private static String stars(Long count) {
+    return count< 10 ? "" :
+      Stream.generate(() -> "*")
+      .limit(count/10)
+      .reduce(String::concat).get();
+  }
+</pre>
+</div>
 </div>
 
 <div class="slide">
