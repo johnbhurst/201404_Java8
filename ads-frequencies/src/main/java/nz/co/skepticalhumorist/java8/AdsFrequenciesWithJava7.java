@@ -59,10 +59,9 @@ public class AdsFrequenciesWithJava7 {
 
   private static String getYearMonth(Path file) throws IOException {
     try (BufferedReader reader = Files.newBufferedReader(file)) {
-      String line = "";
-      while (line != null) {
-        line = reader.readLine();
-        if (line != null && line.startsWith("STMT_TIME=")) {
+      String line = null;
+      while ((line = reader.readLine()) != null) {
+        if (line.startsWith("STMT_TIME=")) {
           Date date = date(line.substring(10));
           return FORMAT.format(date);
         }
