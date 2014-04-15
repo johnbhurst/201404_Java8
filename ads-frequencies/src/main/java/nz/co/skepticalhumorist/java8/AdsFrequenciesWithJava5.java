@@ -41,7 +41,7 @@ public class AdsFrequenciesWithJava5 {
   }
 
   private static SortedMap<String, Integer> getYearMonthCounts(File dir) throws IOException {
-    SortedMap<String, Integer> result = new TreeMap<>();
+    SortedMap<String, Integer> result = new TreeMap<String, Integer>();
     for (File file : dir.listFiles(HdrFilenameFilter.INSTANCE)) {
       String yearMonth = getYearMonth(file);
       if (result.containsKey(yearMonth)) {
