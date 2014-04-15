@@ -750,6 +750,38 @@ SERVER_NAME=AXIS_T
 </div>
 
 <div class="slide">
+<h2>Example 5: Java 8 functional/parallel</h2>
+<p>Let's slow it down a little:</p>
+<pre class="brush:java">
+  return lines
+    .filter(line -> line.startsWith("STMT_TIME="))
+    .map(s -> s.substring(10))
+    .map(AdsFrequenciesWithJava8Parallel::slow)        // artificial 1ms delay
+    .map(AdsFrequenciesWithJava8Parallel::yearMonth)
+    .findAny()
+    .orElseThrow(RuntimeException::new);
+</pre>
+</div>
+
+<div class="slide">
+<h2>Example 5: Java 8 functional/parallel</h2>
+<p>Then add parallel stream processing:</p>
+<pre class="brush:java">
+  private static Map&lt;YearMonth, Long&gt; getYearMonthCounts(Path dir) throws IOException {
+    try (Stream&lt;Path&gt; files = Files.list(dir).parallel()) {
+      return files
+        .filter(file -> file.toString().endsWith(".hdr"))
+        .collect(Collectors.groupingBy(
+          AdsFrequenciesWithJava8Parallel::getYearMonth,
+          TreeMap::new,
+          Collectors.counting()
+        ));
+    }
+  }
+</pre>
+</div>
+
+<div class="slide">
 <h2>References</h2>
 <ul>
 <li>The Java Tutorial</li>
