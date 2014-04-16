@@ -1,5 +1,12 @@
 Talk Notes
 
+Java 8 Upgrade experiences:
+  Spring4, cascading library upgrades
+  @deprecated
+  Two kinds of errors/problems you can get with upgrades:
+  - Teething problems with new stuff: avoidable, don't upgrade too early
+  - Incompatibilities with old stuff: you have to fix this anyway
+
 Example 1:
 
   Don't you love StackOverflow.com?
@@ -31,4 +38,8 @@ Example 4:
 
   Note checked exceptions getting in the way
   Note heavy chaining and lazy stream processing could make debugging challenging
+
+Future talk on Java 8 + API design?
+  Strategy pattern in common Java coding
+
 
